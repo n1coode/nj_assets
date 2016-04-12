@@ -1,0 +1,7 @@
+#
+# Plugin configuration
+# nj_assets
+#
+plugin.tx_njassets {
+    
+}
