@@ -4,8 +4,8 @@
 ***************************************************************/
  
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'njs Assets',
-	'description' => 'Assets for websites and extensions developed by n1coo.de.',
+	'title' => 'njs Page configuration',
+	'description' => 'Page configuration & assets for websites and extensions developed by n1coo.de.',
 	'category' => 'plugin',
 	'author' => 'Nico Jatzkowski',
 	'author_email' => 'nj@n1coo.de',

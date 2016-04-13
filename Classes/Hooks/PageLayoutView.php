@@ -1,5 +1,5 @@
 <?php
-namespace N1coode\NjCollection\Hooks;
+namespace N1coode\NjPage\Hooks;
 
 /**
  * @author n1coode
@@ -20,7 +20,7 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
     public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row) {
 
         //depending on your list type!!
-        if ($row['list_type'] !== 'njassets_pi1') {
+        if ($row['list_type'] !== 'njpage_pi1') {
             return;
         }
 

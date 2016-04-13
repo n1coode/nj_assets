@@ -1,3 +1,42 @@
-plugin.tx_njassets {
-    
+# PAGE ###
+DOCTYPE = html5
+CHARSET = utf-8
+
+_DEFAULT_TEMPLATES_DIR = EXT:nj_page/Resources/Private/Templates/
+_DEFAULT_PARTIALS_DIR = EXT:nj_page/Resources/Private/Partials/
+_DEFAULT_LAYOUTS_DIR = EXT:nj_page/Resources/Private/Layouts/
+_DEFAULT_LANGUAGE_DIR = EXT:nj_page/Resources/Private/Language/
+_DEFAULT_JAVASCRIPT_DIR = typo3conf/ext/nj_page/Resources/Public/JavaScript
+
+_DEFAULT_JSLIB_IMAGESLOADED = imagesLoaded/4.1.0/imagesloaded.pkgd.min
+_DEFAULT_JSLIB_FLEXSLIDER = FlexSlider/2.5.0/jquery.flexslider.min
+_DEFAULT_JSLIB_JQUERY = jQuery/2.2.3/jquery.min
+_DEFAULT_JSLIB_MASONRY = Masonry/4.0.0/masonry.pkgd.min
+_DEFAULT_JSLIB_MODERNIZR = modernizr/2.8.3/modernizr_custom
+
+_APPLE_TOUCH_ICON = apple-touch-icon
+
+plugin.tx_njpage {
+	settings {
+        general {
+			javascriptLibs {
+				# cat=plugin.tx_njpage/enable/20; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.jQuery
+				jQuery = 0
+				# cat=plugin.tx_njpage/enable/30; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.jQueryUI
+				jQueryUI = 0
+				# cat=plugin.tx_njpage/enable/40; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.flexSlider
+				flexSlider = 0
+				# cat=plugin.tx_njpage/enable/50; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.masonry
+				imagesLoaded = 0
+				# cat=plugin.tx_njpage/enable/60; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.imagesLoaded
+				masonry = 0
+				# cat=plugin.tx_njpage/enable/70; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.modernizr
+				modernizr = 0
+				# cat=plugin.tx_njpage/enable/80; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.pace
+				pace = 0
+				# cat=plugin.tx_njpage/enable/10; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.requireJs
+				requireJs = 1
+			}
+		}
+	}
 }

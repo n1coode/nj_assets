@@ -1,7 +1,24 @@
 #
 # Plugin configuration
-# nj_assets
+# nj_page
 #
-plugin.tx_njassets {
-    
+plugin.tx_njpage {
+	settings {
+        general {
+			javascriptLibs {
+				flexSlider = {$plugin.tx_njpage.settings.general.javascriptLibs.flexSlider}
+				imagesLoaded = {$plugin.tx_njpage.settings.general.javascriptLibs.imagesLoaded}
+				jQuery = {$plugin.tx_njpage.settings.general.javascriptLibs.jQuery}
+				jQueryUI = {$plugin.tx_njpage.settings.general.javascriptLibs.jQueryUI}
+				masonry = {$plugin.tx_njpage.settings.general.javascriptLibs.masonry}
+				modernizr = {$plugin.tx_njpage.settings.general.javascriptLibs.modernizr}
+				pace = {$plugin.tx_njpage.settings.general.javascriptLibs.pace}
+				requireJS = {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}
+			}
+		}
+	}
 }
+
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/lib.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/config.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/page.ts">

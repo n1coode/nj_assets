@@ -11,4 +11,4 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$_EXTKEY] = unserialize($_EXTCONF);
     array()
 );
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][$_EXTKEY] = 'EXT:nj_assets/Classes/Hooks/PageLayoutView.php:N1coode\NjAssets\Hooks\PageLayoutView';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][$_EXTKEY] = 'EXT:nj_page/Classes/Hooks/PageLayoutView.php:N1coode\NjPage\Hooks\PageLayoutView';

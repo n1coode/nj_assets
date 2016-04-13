@@ -5,13 +5,13 @@ $extensionName = \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamel
 $pluginSignature = strtolower($extensionName) . '_pi1';
 
 
-$nj_ext_key			= 'tx_njassets';
-$nj_ext_namespace	= 'NjAssets';
-$nj_ext_path		= 'nj_assets';
-$nj_ext_title		= 'njs Assets';
+$nj_ext_key			= 'tx_njpage';
+$nj_ext_namespace	= 'NjPage';
+$nj_ext_path		= 'nj_page';
+$nj_ext_title		= 'njs Page';
 
-$nj_ext_lang_file	= 'LLL:EXT:nj_collection/Resources/Private/Language/locallang_db.xlf:';
-
+$nj_ext_lang_file	= 'LLL:EXT:nj_page/Resources/Private/Language/locallang_db.xlf:';
+$nj_collection_lang_file	= 'LLL:EXT:nj_collection/Resources/Private/Language/locallang_db.xlf:';
 
 /**
  * Registers a Plugin to be listed in the Backend. You also have to configure the Dispatcher in ext_localconf.php.
