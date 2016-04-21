@@ -1,0 +1,81 @@
+<div id="{container}" class="clearfix" style="display:block;" data-uid="{uid}" data-extkey="{ext.key}">
+	<div class="devices clearfix">
+		<f:if condition="{devices}">
+			<f:for each="{devices}" as="device" iteration="x">
+				<div class="device {device} clearfix" data-device="{device}" data-width="100%">
+					<div class="icon">
+						<f:render section="deviceIcon" arguments="{device:device}" />
+					</div>
+					<div class="label">{device}</div>
+					<f:if condition="{device}!=='desktop'">
+						<div class="orientations">
+							<f:for each="{orientations}" as="orientation" iteration="y">
+								<div class="orientation {orientation}" data-orientation="{device}-{orientation}">
+									<div class="icon">
+										<f:render section="orientationIcon" arguments="{orientation:orientation}" />
+									</div>
+								</div>
+							</f:for>
+						</div>
+					</f:if>
+				</div>
+			</f:for>
+		</f:if>
+	</div>
+</div
+
+<f:section name="deviceIcon">
+	<f:switch expression="{device}">
+		<f:case value="desktop">
+<svg version="1.1" id="deviceDesktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 32 32" xml:space="preserve">
+<path d="M23,30h-2c-1.104,0-2-0.896-2-2v-3h-6v3c0,1.104-0.896,2-2,2H9c-0.553,0-1,0.448-1,1c0,0.553,0.447,1,1,1h14
+	c0.553,0,1-0.447,1-1C24,30.448,23.553,30,23,30z M30.25,0H1.75C0.784,0,0,0.84,0,1.875v19.25C0,22.16,0.784,23,1.75,23h28.5
+	c0.966,0,1.75-0.84,1.75-1.875V1.875C32,0.84,31.216,0,30.25,0z M30,21H2V2h28V21z"/>
+</svg>			
+		</f:case>
+		<f:case value="tablet">
+<svg version="1.1" id="deviceTablet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 577.608 577.608" xml:space="preserve">
+<path d="M468.499,0H109.113C80.757,0,57.762,22.987,57.762,51.341v474.927c0,28.354,22.993,51.341,51.351,51.341h359.385
+	c28.352,0,51.348-22.984,51.348-51.341V51.339C519.846,22.985,496.85,0,468.499,0z M288.804,549.411
+	c-12.146,0-22.038-9.861-22.038-22.047c0-12.164,9.892-22.044,22.038-22.044c12.165,0,22.057,9.88,22.057,22.044
+	C310.862,539.55,300.969,549.411,288.804,549.411z M474.928,471.928c0,6.187-5.023,11.197-11.205,11.197H113.887
+	c-6.185,0-11.204-5.012-11.204-11.197V55.005c0-6.186,5.019-11.196,11.204-11.196h349.836c6.182,0,11.205,5.01,11.205,11.196
+	V471.928z"/>
+</svg>
+		</f:case>
+		<f:case value="mobile">
+<svg version="1.1" id="deviceMobile" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 792 792" xml:space="preserve">
+<path d="M557.75,792c0,0,71.889,0,71.889-71.997V71.997C629.639,0,557.75,0,557.75,0h-323.5c0,0-71.889,0-71.889,71.997v648.006
+	C162.361,792,234.25,792,234.25,792H557.75z M396,762.022c-19.841,0-35.944-16.104-35.944-35.944
+	c0-19.842,16.103-35.944,35.944-35.944s35.945,16.103,35.945,35.944C431.945,745.919,415.842,762.022,396,762.022z M306.139,43.888
+	c0-4.457,3.559-7.944,7.944-7.944h163.8c4.385,0,7.979,3.559,7.979,7.944v2.121c0,4.493-3.559,7.944-7.943,7.944H314.083
+	c-4.349,0-7.944-3.559-7.944-7.944V43.888z M198.306,89.861h395.389v575.111H198.306V89.861z"/>
+</svg>			
+		</f:case>
+	</f:switch>
+</f:section>
+
+<f:section name="orientationIcon">
+	<f:switch expression="{orientation}">
+		<f:case value="landscape">
+<svg version="1.1" id="{orientation}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 596 443" xml:space="preserve">
+	<path fill="#010202" d="M547.3,371.9V71.1c0-12.4-10.1-22.5-22.5-22.5H298H125.9c-12.4,0-22.5,10.1-22.5,22.5v300.8
+		c0,12.4,10.1,22.5,22.5,22.5H298h226.9C537.3,394.4,547.3,384.3,547.3,371.9z"/>
+	<path fill="#010202" d="M596,371.9V71.1C596,31.9,564.1,0,524.9,0L298,0L71.1,0C31.9,0,0,31.9,0,71.1l0,300.8
+		C0,411.1,31.9,443,71.1,443H298h226.9C564.1,443,596,411.1,596,371.9z M26.8,261.5v-77.8c0-6.7,5.4-12.2,12.2-12.2
+		s12.2,5.4,12.2,12.2v77.8c0,6.7-5.4,12.2-12.2,12.2S26.8,268.2,26.8,261.5z M298,418.7H125.9c-25.9,0-46.8-21-46.8-46.8V71.1
+		c0-25.8,21-46.8,46.8-46.8H298h226.9c25.9,0,46.8,21,46.8,46.8v300.8c0,25.8-21,46.8-46.8,46.8L298,418.7L298,418.7z"/>
+</svg>
+		</f:case>
+		<f:case value="portrait">
+<svg version="1.1" id="{orientation}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 443 596" xml:space="preserve">
+	<path fill="#010202" d="M371.9,48.7H71.1c-12.4,0-22.5,10.1-22.5,22.5V298v172.1c0,12.4,10.1,22.5,22.5,22.5h300.8
+		c12.4,0,22.5-10.1,22.5-22.5V298V71.1C394.4,58.7,384.3,48.7,371.9,48.7z"/>
+	<path fill="#010202" d="M371.9,0H71.1C31.9,0,0,31.9,0,71.1V298v226.9C0,564.1,31.9,596,71.1,596h300.8c39.2,0,71.1-31.9,71.1-71.1
+		V298V71.1C443,31.9,411.1,0,371.9,0z M261.5,569.2h-77.8c-6.7,0-12.2-5.4-12.2-12.2c0-6.7,5.4-12.2,12.2-12.2h77.8
+		c6.7,0,12.2,5.4,12.2,12.2C273.6,563.8,268.2,569.2,261.5,569.2z M418.7,298v172.1c0,25.9-21,46.8-46.8,46.8H71.1
+		c-25.8,0-46.8-21-46.8-46.8V298V71.1c0-25.9,21-46.8,46.8-46.8h300.8c25.8,0,46.8,21,46.8,46.8L418.7,298L418.7,298z"/>
+</svg>
+		</f:case>
+	</f:switch>
+</f:section>

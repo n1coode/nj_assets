@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?> 
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-04-14" product-name="nj_page">
+		<header/>
+		<body>
+			<trans-unit id="label.tt_content.alignment" xml:space="preserve">
+				<target>Textausrichtung</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.class" xml:space="preserve">
+				<target>Css-Klasse(n)</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.classEnable" xml:space="preserve">
+				<target>Css-Klasse(n) hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.device" xml:space="preserve">
+				<target>Geräte auf Denen der Inhalt angezeigt werden soll</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.deviceEnable" xml:space="preserve">
+				<target>Spezifische Geräteeinstellungen hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.orientation" xml:space="preserve">
+				<target>Ausrichtung</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.orientationEnable" xml:space="preserve">
+				<target>Auf eine Ausrichtung beschränken</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.renderType" xml:space="preserve">
+				<target>Render-Typ</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.style" xml:space="preserve">
+				<target>Css-Stil(e)</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.styleEnable" xml:space="preserve">
+				<target>Css-Stil(e) hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.wrapDisable" xml:space="preserve">
+				<target>Wrapper komplett entfernen (auch den von tt_content)</target>
+			</trans-unit>
+			<trans-unit id="label.tt_content.wrapEnable" xml:space="preserve">
+				<target>Wrapper hinzufügen (.n1main .n1wrapper ...)</target>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.center" xml:space="preserve">
+				<target>Zentriert</target>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.justify" xml:space="preserve">
+				<target>Blocksatz</target>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.left" xml:space="preserve">
+				<target>Links</target>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.right" xml:space="preserve">
+				<target>Rechts</target>
+			</trans-unit>
+			<trans-unit id="tab.tt_content.design" xml:space="preserve">
+				<target>nj_page &#171; Design &#187;</target>
+			</trans-unit>
+			<trans-unit id="tab.tt_content.mobile" xml:space="preserve">
+				<target>tx_njpage &#171; Mobil &#187;</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

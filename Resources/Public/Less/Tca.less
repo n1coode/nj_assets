@@ -1,0 +1,269 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14.04.2016, 18:04:34
+    Author     : Nico Jatzkowski <nj@n1coo.de>
+*/
+
+@device-selected-bg-color: #8DC63F;
+@device-selected-bg-color-hover: darken(@device-selected-bg-color,10%);
+
+@device-selected-font-color: white;
+
+@device-deselected-bg-color: fade(silver,25%);
+@device-deselected-bg-color-hover: #62B0DF;
+@device-deselected-font-color: silver;
+@device-deselected-font-color-hover: white;
+
+#n1deviceList
+{	
+	.devices
+	{
+		@_this-height: 75px;
+		
+		.device
+		{
+			background-color: fade(silver,25%);
+			cursor: pointer;
+			height: @_this-height;
+			margin-bottom: 5px;
+			overflow: hidden;
+			width: 100%;
+			
+			
+			>.icon {
+				background-color: fade(@device-deselected-font-color,33%);
+
+				path {
+					fill: @device-deselected-font-color;
+				}
+				
+			}
+			
+			.label {
+				color: @device-deselected-font-color;
+				height: @_this-height;
+				font-family: Share, Verdana, Arial, Helvetica, sans-serif;
+				font-size: @_this-height / 3;
+				font-weight: 100;
+				line-height: @_this-height;
+				margin: 0;
+				padding: 0 0 0 25px;
+				text-align: left;
+				text-transform: uppercase;
+			}
+			
+			.icon {
+				float: left;
+				height: @_this-height;
+				padding: 15px;
+				width: @_this-height;
+				text-align: center;
+			}
+			
+			.orientation .icon {
+				path {
+					fill: fade(silver,50%);
+				}
+			}
+			
+			&:hover
+			{
+				.mixin-transition(all 0.25s ease-in);
+				>.icon {
+					.mixin-animation(swing 0.5s ease);
+					.mixin-animation-itaration(1);
+				}
+			}
+			
+			&.selected, &.deselected:hover
+			{
+				>.icon, .label {
+					color: white;
+				}
+				>.icon {
+					path { fill: white; }
+				}
+			}
+			
+			&.selected
+			{
+				background-color: fade(@device-selected-bg-color,50%);
+				>.icon
+				{
+					background-color: fade(@device-selected-bg-color,33%);
+				}
+				
+				&:hover
+				{
+					background-color: darken(@device-selected-bg-color,10%);
+					.orientation {
+						&.selected {
+							background-color: #444;
+						}
+					}
+				}
+			}
+			&.deselected
+			{
+				.orientations {
+					display: none;
+				}
+				&:hover
+				{	
+					background-color: fade(@device-deselected-bg-color-hover,50%);
+					>.icon
+					{
+						background-color: fade(@device-deselected-bg-color-hover,33%);
+					}
+					.orientation .icon path {
+						fill: fade(@device-deselected-bg-color-hover,50%);
+					}
+				}
+			}
+
+			.orientations {
+				width: @_this-height * 2;
+				height: @_this-height;
+				float: right;
+				background-color: fade(white,33%);
+				
+				.orientation {
+					width: @_this-height;
+					height: inherit;
+					float: left;
+					.icon
+					{
+						border-left: 1px solid fade(white,85%);
+					}
+					&.selected
+					{
+						background-color: fade(@device-selected-bg-color,75%);
+						path { fill: white; }
+					}
+					&.deselected
+					{
+						path { fill: fade(white,75%); }
+					}
+				}
+			}
+		}
+	}
+}
+
+.clearfix:after {
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+		background-color: #444;
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+		background-color: #444;
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+
+
+.mixin-animation(@value1,@value2:X,...) 
+{
+	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	-webkit-animation: @value;
+	-moz-animation:    @value;
+	-ms-animation:     @value;
+	animation: @value;
+}
+
+.mixin-animation-itaration(@value) 
+{
+	-moz-animation-iteration-count: @value;
+	-webkit-animation-iteration-count: @value;
+	-o-animation-iteration-count: @value;
+	animation-iteration-count: @value;
+}
+
+
+
+.mixin-transition (@value1,@value2:X,...)
+{
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+
+    -webkit-transition: @value;
+    -moz-transition: @value;
+    -ms-transition: @value;
+    -o-transition: @value;
+    transition: @value;
+}

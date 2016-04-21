@@ -45,6 +45,10 @@ page.10 {
 }
 
 page.10 {
+	templateRootPaths {
+		10 = {$_DEFAULT_TEMPLATES_DIR}
+		20 = {$PAGE_TEMPLATES_DIR}
+	}
 	partialRootPaths {
 		10 = {$_DEFAULT_PARTIALS_DIR}
 		20 = {$PAGE_PARTIALS_DIR}
@@ -94,37 +98,27 @@ page.10 {
 [global]
 
 ## include jQuery
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.jQuery}]
-&&
-[globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
+[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.jQuery}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
 	page.includeJSFooterlibs.jQuery = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_JQUERY}.js
 [global]
 
 ## include flexSlider
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.flexSlider}]
-&&
-[globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
+[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.flexSlider}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
 	page.includeJSFooterlibs.jQuery = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_FLEXSLIDER}.js
 [global]
 
 ## include imagesLoaded
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.imagesLoaded}]
-&&
-[globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
+[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.imagesLoaded}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
 	page.includeJSFooterlibs.imagesLoaded = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_IMAGESLOADED}.js
 [global]
 
 ## include masonry
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.masonry}]
-&&
-[globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
+[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.masonry}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
 	page.includeJSLibs.masonry = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_MASONRY}.js
 [global]
 
 ## include modernizr
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.modernizr}]
-&&
-[globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
+[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.modernizr}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
 	page.includeJSLibs.modernizr = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_MODERNIZR}.js
 [global]
 

@@ -2,6 +2,8 @@
 DOCTYPE = html5
 CHARSET = utf-8
 
+_DEFAULT_FLUID_STYLED_CONTENT_DIR =  EXT:nj_page/Resources/Private/fluid_styled_content
+
 _DEFAULT_TEMPLATES_DIR = EXT:nj_page/Resources/Private/Templates/
 _DEFAULT_PARTIALS_DIR = EXT:nj_page/Resources/Private/Partials/
 _DEFAULT_LAYOUTS_DIR = EXT:nj_page/Resources/Private/Layouts/
@@ -15,6 +17,7 @@ _DEFAULT_JSLIB_MASONRY = Masonry/4.0.0/masonry.pkgd.min
 _DEFAULT_JSLIB_MODERNIZR = modernizr/2.8.3/modernizr_custom
 
 _APPLE_TOUCH_ICON = apple-touch-icon
+
 
 plugin.tx_njpage {
 	settings {

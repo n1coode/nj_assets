@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0"> 
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-06" product-name="nj_page">
+		<header/>
+		<body>
+			<trans-unit id="label.tt_content.alignment" xml:space="preserve">
+				<source>Text alignment</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.class" xml:space="preserve">
+				<source>Css class(es)</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.classEnable" xml:space="preserve">
+				<source>Enable css class(es)</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.device" xml:space="preserve">
+				<source>Devices, the content should be displayed</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.deviceEnable" xml:space="preserve">
+				<source>Enable specific device settings</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.orientation" xml:space="preserve">
+				<source>Orientation</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.orientationEnable" xml:space="preserve">
+				<source>Limit to an orientation</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.renderType" xml:space="preserve">
+				<source>Render type</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.style" xml:space="preserve">
+				<source>Css stlye(s)</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.styleEnable" xml:space="preserve">
+				<source>Enable css style(s)</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.wrapDisable" xml:space="preserve">
+				<source>Remove complete wrapper (also tt_content)</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.wrapEnable" xml:space="preserve">
+				<source>Add wrapper &#171; .n1main .n1wrapper ... &#187;</source>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.center" xml:space="preserve">
+				<source>Center</source>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.justify" xml:space="preserve">
+				<source>Justify</source>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.left" xml:space="preserve">
+				<source>Left</source>
+			</trans-unit>
+			<trans-unit id="select.tt_content.alignment.right" xml:space="preserve">
+				<source>Right</source>
+			</trans-unit>
+			<trans-unit id="tab.tt_content.design" xml:space="preserve">
+				<source>tx_njpage &#171; Design &#187;</source>
+			</trans-unit>
+			<trans-unit id="tab.tt_content.mobile" xml:space="preserve">
+				<source>tx_njpage &#171; Mobile &#187;</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
