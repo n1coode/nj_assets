@@ -5,7 +5,12 @@
 plugin.tx_njpage {
 	settings {
         general {
+			angularJS {
+				enable = {$plugin.tx_njpage.settings.general.angularJS.enable}
+				app = {$plugin.tx_njpage.settings.general.angularJS.app}
+			}
 			javascriptLibs {
+				angularJS = {$plugin.tx_njpage.settings.general.javascriptLibs.angularJS}
 				flexSlider = {$plugin.tx_njpage.settings.general.javascriptLibs.flexSlider}
 				imagesLoaded = {$plugin.tx_njpage.settings.general.javascriptLibs.imagesLoaded}
 				jQuery = {$plugin.tx_njpage.settings.general.javascriptLibs.jQuery}
@@ -19,8 +24,10 @@ plugin.tx_njpage {
 	}
 }
 
-
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/lib.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/config.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/content.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/navigation.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/page.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/javascript.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/ext/nj_page/Configuration/TypoScript/Web/meta.ts">

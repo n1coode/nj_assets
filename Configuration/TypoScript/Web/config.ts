@@ -1,5 +1,15 @@
+[globalString = GP:json=1]
 config {
-    ## start general settings
+	disableAllHeaderCode = 1
+	doctype = none
+	xhtml_cleaning = 0
+	admPanel = 0
+	debug = 0
+	no_cache = 1
+	additionalHeaders = Content-type:application/json
+}
+[else]
+config {
 	baseURL = {$BASE_URL}
 	doctype(
 		<!DOCTYPE html>
@@ -11,46 +21,50 @@ config {
 	metaCharset = {$CHARSET}
     renderCharset = {$CHARSET}
 	xmlprologue = none
+}
+[global]
 
+config {
+	meaningfulTempFilePrefix = 80
 	spamProtectEmailAddresses = ascii
     spamProtectEmailAddresses_atSubst = (at)
 
-
-	## useful imagenames for seo
-	meaningfulTempFilePrefix = 80
-
 	## multidomain
-	MP_mapRootPoints = {$MULTIDOMAIN_ROOTPOINTS}
+	index_enable = 1
 	content_from_pid_allowOutsideDomain=1
+	MP_mapRootPoints = {$MULTIDOMAIN_ROOTPOINTS}
 	typolinkCheckRootline = 1
 	typolinkEnableLinksAcrossDomains = 1
-	index_enable = 1
+}
 
-	## start real url #####
-    simulateStaticDocuments = 0
-    simulateStaticDocuments_noTypeIfNoTitle = 0
-    tx_cooluri_enable = 0
-    tx_realurl_enable = 0
-    redirectOldLinksToNew = 1
-	absRefPrefix = {$BASE_URL}
-    prefixLocalAnchors = all 
-    ## end real url #####
-
-	## start language #####
-    sys_language_uid = 0
+## start LANGUAGE ###
+config {
+	sys_language_uid = 0
     language = de
     #locale_all = de_DE.UTF-8
 	locale_all = de_DE@euro
-    htmlTag_langKey = de
+    htmlTag_setParams = lang="de"
     sys_language_overlay = 1
     sys_language_mode = content_fallback;0
     uniqueLinkVars = 1
     linkVars = L(0-3), print
-    ## end language #####
 }
+## end LANGUAGE ###
 
 
-## compression and concatenation for JS and CSS
+## start SEO-URLS ###
+config {
+	tx_cooluri_enable = {$COOLURI_ENABLE}
+    tx_realurl_enable = {$REALURL_ENABLE}
+    redirectOldLinksToNew = 1
+	absRelPath = /
+	absRefPrefix = {$BASE_URL}
+    prefixLocalAnchors = all 
+}
+## end SEO-URLS ###
+
+
+## start COMPRESSION & CONCATENATION FOR JS AND CSS ###
 config {
 	compressCss = {$CSS_COMPRESS}
 	compressJs = {$JS_COMPRESS}
@@ -63,15 +77,15 @@ config {
 config {
 	compressCss = 0
 	compressJs = 0
-	concatenateCss = 0}
+	concatenateCss = 0
 	concatenateJs = 0
 	## removes HTML Comments in sourcecode
 	disablePrefixComment = 0
 }
 [global]
+## end COMPRESSION & CONCATENATION FOR JS AND CSS ###
 
-
-## debug settings
+## start DEBUG SETTINGS ###
 config {
 	contentObjectExceptionHandler = 0
 }
@@ -90,5 +104,19 @@ config {
 	displayErrors = {$DISPLAYERRORS}
 	no_cache = {$NO_CACHE}
 }
+page.config.no_cache = {$NO_CACHE}
 [global]
+## end DEBUG SETTINGS ###
 
+
+[globalString = GP:json=1]
+config {
+	disableAllHeaderCode = 1
+	doctype = none
+	xhtml_cleaning = 0
+	admPanel = 0
+	debug = 0
+	no_cache = 1
+	additionalHeaders = Content-type:application/json
+}
+[global]

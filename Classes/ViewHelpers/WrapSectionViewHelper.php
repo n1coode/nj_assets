@@ -38,25 +38,13 @@ use N1coode\NjPage\Utility\HtmlBuilder as Html;
  * @author n1coo.de
  * @package nj_page
  */
-class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class WrapSectionViewHelper extends \N1coode\NjPage\ViewHelpers\AbstractWrapViewHelper
 {	
-	const _DEFAULT_RENDER_TYPE	= Html::_ELEMENT_STD_DIV;
-	
-	
-	/**
-	 * @var string 
-	 */
-	private $cssClass = Html::_CLASS_BASE;
-	
 	/**
 	 * @var string 
 	 */
 	private $cssStyle = NULL;
 	
-	/**
-	 * @var array
-	 */
-	private $data;
 	
 	/**
 	 * @var string
@@ -73,15 +61,6 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 */
 	private $dataOrientation = NULL;
 	
-	/**
-	 * @var boolean
-	 */
-	protected $escapeChildren = FALSE;
-
-	/**
-	 * @var boolean
-	 */
-	protected $escapeOutput = FALSE;
 	
 	/**
 	 * @var string
@@ -92,16 +71,6 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 * @var string
 	 */
 	private $role = NULL;
-	
-	/**
-	 * @var string
-	 */
-	private $output = '';
-
-	/**
-	 * @var string 
-	 */
-	private $renderType = self::_DEFAULT_RENDER_TYPE;
 	
 	
 	/**
@@ -122,12 +91,15 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	{
 		$this->registerArgument('addDataRole', 'boolean', 'Option whether the attribute data-role should be added or not.',FALSE,TRUE);
 		$this->registerArgument('addId', 'boolean', 'Option whether the attribute id should be added or not.',FALSE,TRUE);
-		$this->registerArgument('addInnerWrapper', 'boolean', 'Option whether the inner wrapper "n1wrapper & n1con should be added or not.',FALSE, TRUE);
+		$this->registerArgument('addBaseWrap','boolean', 'If set true, element is wrapped with "n1base"-classes.', FALSE, TRUE);
+		$this->registerArgument('addInnerWrap', 'boolean', 'Option whether the inner wrapper "n1wrapper & n1con should be added or not.',FALSE, TRUE);
 		$this->registerArgument('additionalClasses', 'string', 'Additional class for the main wrapper.',FALSE,NULL);
 		$this->registerArgument('addRole','boolean', 'Option whether the attribute role should be added or not.',FALSE,FALSE);
+		$this->registerArgument('angularView','boolean','Option whether section is angular view or not.',FALSE, FALSE);
 		$this->registerArgument('dataDevice', 'string', 'Attribute in the main wrapper to handle output on devices.',FALSE,NULL);
 		$this->registerArgument('dataOrientation', 'string', 'Attribute in the main wrapper to handle output on devices in dependency to orientation.',FALSE,NULL);
 		$this->registerArgument('id', 'string', 'ID of the main wrapper. (If not set data-role will be used.)',FALSE,NULL);
+		$this->registerArgument('isAngularView', 'Option to include attribute "ng-view" in the wrapper or not.', FALSE, FALSE);
 		$this->registerArgument('role', 'string', 'Value is used for attributes id, data-role & role.',FALSE,NULL);
 		$this->registerArgument('type', 'string', 'Type of the section: div, header, footer, section etc.',FALSE,NULL);
 	}
@@ -156,57 +128,13 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	
 	/**
 	 * @param string $argument Name of the array key in arguments
+	 * @todo Nothing
 	 */
-	private function argumentGet($argument)
+	protected function argumentGet($argument)
 	{
 		return $this->arguments[$argument];
 	}
-	
-	/**
-	 * @param string $argument Name of the array key in arguments
-	 * @return boolean
-	 */
-	private function argumentIsNotEmpty($argument)
-	{
-		if($this->argumentIsSet($argument))
-		{
-			if($this->argumentGet($argument) !== '')
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * @param string $argument Name of the array key in arguments
-	 * @return boolean
-	 */
-	private function argumentIsSet($argument)
-	{
-		if($this->argumentGet($argument) !== NULL)
-		{
-			return true;
-		}
-		return false; 
-	}
-	
-	/**
-	 * @param string $argument Name of the array key in arguments
-	 * @return boolean
-	 */
-	private function argumentIsTrue($argument)
-	{
-		if($this->argumentIsSet($argument))
-		{
-			if($this->argumentGet($argument) === TRUE)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
+		
 	
 	/**
 	 * Calls the setters for the variables used as section attributes.
@@ -282,17 +210,6 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 		}
 	}
 	
-	/**
-	 * Setter for sections type of element
-	 * @return void
-	 */
-	private function setRenderType()
-	{
-		if($this->argumentIsNotEmpty('type'))
-		{
-			$this->renderType = $this->argumentGet('type');
-		}
-	}
 	
 	/**
 	 * Setter for section attribute 'role'
@@ -331,7 +248,7 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	private function buildSection()
 	{
 		$this->buildSectionOpener();
-		$this->buildInnerWrapper();
+		$this->buildInnerWrap();
 		$this->buildSectionCloser();
 	}
 	
@@ -357,6 +274,10 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 		if($this->role !== NULL) {
 			$this->concatOutput(Html::attribute(Html::_ATTRIBUTE_ROLE, $this->role), TRUE);
 		}
+		if($this->argumentIsTrue('isAngularView') && !$this->argumentIsTrue('addInnerWrap'))
+		{
+			$this->concatOutput(Html::_ATTRIBUTE_ANGULAR_VIEW, TRUE);
+		}
 	}
 	
 	/**
@@ -365,16 +286,19 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 */
 	private function buildSectionClass()
 	{
-		
-		/* @var $cssClass string */
-		$cssClass = $this->concatString($this->cssClass, Html::_CLASS_SECTION, TRUE);
-		
+		if($this->argumentIsTrue('addBaseWrap'))
+		{
+			$this->cssClass = Html::_CLASS_BASE;
+			$this->cssClass = $this->concatString($this->cssClass, Html::_CLASS_SECTION, TRUE);
+		}
 		if($this->argumentIsNotEmpty('additionalClasses'))
 		{
-			$cssClass = $this->concatClasses($cssClass,$this->argumentGet('additionalClasses'));
-			
+			$this->cssClass = $this->concatClasses($this->cssClass,$this->argumentGet('additionalClasses'));
 		}
-		$this->concatOutput(Html::attribute(Html::_ATTRIBUTE_CLASS, $cssClass), TRUE);
+		if(strlen($this->cssClass) > 0)
+		{
+			$this->concatOutput(Html::attribute(Html::_ATTRIBUTE_CLASS, $this->cssClass), TRUE);
+		}
 	}
 	
 	/**
@@ -402,20 +326,20 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 * Builds the inner wrapper elements, including the child content. Extends $this->output directly.
 	 * @return void
 	 */
-	private function buildInnerWrapper()
+	private function buildInnerWrap()
 	{
 		$element = Html::_ELEMENT_STD_DIV;
 		$x = 0;
 		
-		if($this->argumentIsTrue('addInnerWrapper')) {
-			$x = $this->buildInnerWrapperOpener($element);
+		if($this->argumentIsTrue('addBaseWrap') && $this->argumentIsTrue('addInnerWrap')) {
+			$x = $this->buildInnerWrapOpener($element);
 		}
 		
 		/** adds the child content */
 		$this->concatOutput($this->renderChildren());
 		
-		if($this->argumentIsTrue('addInnerWrapper')) {
-			$this->buildInnerWrapperCloser($x,$element);
+		if($this->argumentIsTrue('addBaseWrap') && $this->argumentIsTrue('addInnerWrap')) {
+			$this->buildInnerWrapCloser($x,$element);
 		}
 	}	
 	
@@ -426,7 +350,7 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 * @param string $element
 	 * @return void
 	 */
-	private function buildInnerWrapperCloser($iteration = 0,$element = Html::_ELEMENT_STD_DIV)
+	private function buildInnerWrapCloser($iteration = 0,$element = Html::_ELEMENT_STD_DIV)
 	{
 		while($iteration > 0) {
 			$this->concatOutput(Html::elementClose($element));
@@ -438,9 +362,9 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 * Builds the opening tag(s) of the inner wrapper element(s) ('.n1base.n1wrapper>.n1base.n1container). 
 	 * Extends $this->output directly.
 	 * @param string $element
-	 * @return void
+	 * @return int $x iteration
 	 */
-	private function buildInnerWrapperOpener($element = Html::_ELEMENT_STD_DIV)
+	private function buildInnerWrapOpener($element = Html::_ELEMENT_STD_DIV)
 	{
 		$x = 0;
 		$this->concatOutput(Html::elementOpen($element, Html::_TAG_ACTION_OPEN));
@@ -449,24 +373,14 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 		$x++;
 		$this->concatOutput(Html::elementOpen($element, Html::_TAG_ACTION_OPEN));
 		$this->concatOutput(Html::attribute(Html::_ATTRIBUTE_CLASS, Html::_CLASS_BASE.' '.Html::_CLASS_CONTAINER),TRUE);
+		if($this->argumentIsTrue('isAngularView'))
+		{
+			$this->concatOutput(Html::_ATTRIBUTE_ANGULAR_VIEW, TRUE);
+		}
 		$this->concatOutput(Html::elementOpen($element, Html::_TAG_ACTION_CLOSE));
 		$x++;
+		return $x;
 	}
-	
-	
-	private function concatString($string,$expansion,$prependEmptySpace = FALSE)
-	{
-		$concatenation = $string;
-		if($prependEmptySpace) { $concatenation .= ' '; }
-		return $concatenation . $expansion;
-	}
-	
-	private function concatOutput($expansion, $prependEmptySpace = FALSE)
-	{
-		if($prependEmptySpace) { $this->output .= ' '; }
-		$this->output .= $expansion;
-	}
-	
 
 	/**
 	 * @param string $classes
@@ -496,5 +410,17 @@ class WrapSectionViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 */
 	public function addAttributes() {
 	}
-
+	
+	
+	/**
+	 * Setter for sections type of element
+	 * @return void
+	 */
+	protected function setRenderType()
+	{
+		if($this->argumentIsNotEmpty('type'))
+		{
+			$this->renderType = $this->argumentGet('type');
+		}
+	}
 }

@@ -1,0 +1,131 @@
+/* --------------------------------
+	Site:       i-taros.com
+	CSS author: Nico Jatzkowski // www.i-taros.com
+	Updated:    17.07.2015
+-------------------------------- */
+
+.generate-font-face(@family:'',@source:'',@svg:'') 
+{
+	@font-face {
+		font-family: @family;
+		src: url('@{source}.eot');
+		src: url('@{source}.eot?#iefix') format('embedded-opentype'),
+			 url('@{source}.woff2') format('woff2'),
+			 url('@{source}.woff') format('woff'),
+			 url('@{source}.ttf') format('truetype'),
+			 url('@{source}.svg#@{svg}') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+ 
+.generate-font-face(@family: 'CooperBeckerPoster', @source: 'cooper_becker_poster_black-webfont', @svg:'cooper_becker_poster_blackRg');
+
+.generate-font-face(@family: 'CooperBeckerPoster', @source: 'cooper_becker_poster_black-webfont', @svg:'cooper_becker_poster_blackRg');
+
+@font-face {
+    font-family: 'FiraMono-Bold';
+    src: url('../../../_all/fonts/firamono-bold-webfont.eot');
+    src: url('../../../_all/fonts/firamono-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firamono-bold-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firamono-bold-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firamono-bold-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firamono-bold-webfont.svg#fira_monobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraMono-Regular';
+    src: url('../../../_all/fonts/firamono-regular-webfont.eot');
+    src: url('../../../_all/fonts/firamono-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firamono-regular-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firamono-regular-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firamono-regular-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firamono-regular-webfont.svg#fira_monoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'FiraSans-Regular';
+    src: url('../../../_all/fonts/firasans-regular-webfont.eot');
+    src: url('../../../_all/fonts/firasans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firasans-regular-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firasans-regular-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firasans-regular-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firasans-regular-webfont.svg#FiraSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraSans-Bold';
+    src: url('../../../_all/fonts/firasans-bold-webfont.eot');
+    src: url('../../../_all/fonts/firasans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firasans-bold-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firasans-bold-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firasans-bold-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firasans-bold-webfont.svg#FiraSans-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraSans-Thin';
+    src: url('../../../_all/fonts/firasans-thin-webfont.eot');
+    src: url('../../../_all/fonts/firasans-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firasans-thin-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firasans-thin-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firasans-thin-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firasans-thin-webfont.svg#FiraSans-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'FiraSans-Ultra';
+    src: url('../../../_all/fonts/firasans-ultra-webfont.eot');
+    src: url('../../../_all/fonts/firasans-ultra-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firasans-ultra-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firasans-ultra-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firasans-ultra-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firasans-ultra-webfont.svg#fira_sansultra') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'FiraSans-Ultra-Italic';
+    src: url('../../../_all/fonts/firasans-ultraitalic-webfont.eot');
+    src: url('../../../_all/fonts/firasans-ultraitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../../_all/fonts/firasans-ultraitalic-webfont.woff2') format('woff2'),
+         url('../../../_all/fonts/firasans-ultraitalic-webfont.woff') format('woff'),
+         url('../../../_all/fonts/firasans-ultraitalic-webfont.ttf') format('truetype'),
+         url('../../../_all/fonts/firasans-ultraitalic-webfont.svg#fira_sansultra_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+.generate-font-face(@family: 'JosefinSans', @source: 'josefinsans-regular-webfont', @svg:'josefin_sansregular');
+.generate-font-face(@family: 'JosefinSans-Light', @source: 'josefinsans-light-webfont', @svg:'josefin_sanslight');
+.generate-font-face(@family: 'JosefinSans-Thin', @source: 'josefinsans-thin-webfont', @svg:'josefin_sansthin');
+.generate-font-face(@family: 'JosefinSlab', @source: 'josefinslab-regular-webfont', @svg:'josefin_slabregular');
+.generate-font-face(@family: 'JosefinSlab-Light', @source: 'josefinslab-light-webfont', @svg:'josefin_slablight');
+.generate-font-face(@family: 'JosefinSlab-Thin', @source: 'josefinslab-thin-webfont', @svg:'josefin_slabthin');
+
+.generate-font-face(@family: 'TYPO3', @source: 'share-regular-webfont', @svg:'share-regularregular');
+
+.generate-font-face(@family: 'Titillium', @source: 'TitilliumWeb-Regular-webfont', @svg:'titillium_webregular');
+.generate-font-face(@family: 'Titillium-Light', @source: 'TitilliumWeb-Light-webfont', @svg:'titillium_weblight');
+.generate-font-face(@family: 'TitilliumBold', @source: 'TitilliumWeb-Bold-webfont', @svg:'titillium_webbold');
+.generate-font-face(@family: 'TitilliumBoldItalic', @source: 'TitilliumWeb-BoldItalic-webfont', @svg:'titillium_webbold_italic');
+.generate-font-face(@family: 'TitilliumItalic', @source: 'TitilliumWeb-Italic-webfont', @svg:'titillium_webitalic');
+.generate-font-face(@family: 'TitilliumItalic-Light', @source: 'TitilliumWeb-LightItalic-webfont', @svg:'titillium_weblight_italic');
+.generate-font-face(@family: 'TitilliumBold', @source: 'TitilliumWeb-Light-webfont', @svg:'titillium_weblight');

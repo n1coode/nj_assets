@@ -3,14 +3,14 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-06" product-name="nj_page">
 		<header/>
 		<body>
-			<trans-unit id="label.tt_content.alignment" xml:space="preserve">
-				<source>Text alignment</source>
-			</trans-unit>
-			<trans-unit id="label.tt_content.class" xml:space="preserve">
+			<trans-unit id="label.general.class" xml:space="preserve">
 				<source>Css class(es)</source>
 			</trans-unit>
-			<trans-unit id="label.tt_content.classEnable" xml:space="preserve">
+			<trans-unit id="label.general.classEnable" xml:space="preserve">
 				<source>Enable css class(es)</source>
+			</trans-unit>
+			<trans-unit id="label.tt_content.alignment" xml:space="preserve">
+				<source>Text alignment</source>
 			</trans-unit>
 			<trans-unit id="label.tt_content.device" xml:space="preserve">
 				<source>Devices, the content should be displayed</source>
@@ -51,7 +51,10 @@
 			<trans-unit id="select.tt_content.alignment.right" xml:space="preserve">
 				<source>Right</source>
 			</trans-unit>
-			<trans-unit id="tab.tt_content.design" xml:space="preserve">
+			<trans-unit id="tab.general" xml:space="preserve">
+				<source>&#171; tx_njpage &#187;</source>
+			</trans-unit>
+			<trans-unit id="tab.general.design" xml:space="preserve">
 				<source>tx_njpage &#171; Design &#187;</source>
 			</trans-unit>
 			<trans-unit id="tab.tt_content.mobile" xml:space="preserve">

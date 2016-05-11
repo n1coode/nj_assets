@@ -92,76 +92,30 @@ page.10 {
 	}
 }
 
-## include pace
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.pace}]
-	page.includeJSLibs.pace = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/Pace/1.0.2/pace.min.js
-[global]
+## include css
+page.includeCSS {
+		#bootstrap = {$_ALL_CSS_FILE_BOOTSTRAP}
+		#bootstrap.forceOnTop = 1
+	reset = {$_DEFAULT_CSS_DIR}/{$_DEFAULT_CSSLIB_RESET}
+	reset.forceOnTop = 1
+		#fonts = {$_ALL_CSS_FILE_FONTS}
+	master = {$_DEFAULT_CSS_DIR}/{$_DEFAULT_CSSFILE_MASTER}
+		#grid = {$CSS_GRID}
+	core = {$CSS_CORE}
+		#font-awesome = {$_ALL_CSS_LIB_FONT_AWESOME}
+		#animate = {$_ALL_CSS_LIB_ANIMATE}
+}
 
-## include jQuery
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.jQuery}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-	page.includeJSFooterlibs.jQuery = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_JQUERY}.js
-[global]
-
-## include flexSlider
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.flexSlider}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-	page.includeJSFooterlibs.jQuery = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_FLEXSLIDER}.js
-[global]
-
-## include imagesLoaded
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.imagesLoaded}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-	page.includeJSFooterlibs.imagesLoaded = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_IMAGESLOADED}.js
-[global]
-
-## include masonry
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.masonry}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-	page.includeJSLibs.masonry = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_MASONRY}.js
-[global]
-
-## include modernizr
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.modernizr}] && [globalVar = LIT:1 > {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-	page.includeJSLibs.modernizr = {$_DEFAULT_JAVASCRIPT_DIR}/Lib/{$_DEFAULT_JSLIB_MODERNIZR}.js
-[global]
+page.bodyTagCObject = COA
+page.bodyTagCObject.10 < lib.layoutswitch
+[page|tx_njpage_class_enable = 1]
+page.bodyTagCObject.20 = TEXT
+page.bodyTagCObject.20.data = FIELD:tx_njpage_class
+page.bodyTagCObject.20.noTrimWrap = | ||
+[GLOBAL]
+page.bodyTagCObject.stdWrap.wrap = <body class="|">
 
 
-page.includeJSFooter.n1page = {$_DEFAULT_JAVASCRIPT_DIR}/page.js
-page.includeJSFooter.n1domain = {$LAYOUT_DIR}/Public/JavaScript/core.js
-
-#include requrireJS
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-page.headerData.100 = TEXT 
-page.headerData.100.value = <script src="{$_DEFAULT_JAVASCRIPT_DIR}/Lib/requireJs/2.2.0/require.min.js"></script>
-
-page.headerData.101 = TEXT
-page.headerData.101.value(
-<script type="text/javascript">
-	requirejs.config({
-		baseUrl: '{$_DEFAULT_JAVASCRIPT_DIR}',
-		paths: {
-			
-	
-)
-
-page.headerData.200 = TEXT
-page.headerData.200.value(
-			modernizr: 'Lib/{$_DEFAULT_JSLIB_MODERNIZR}'
-		},
-		"shim": {
-			"flexslider":["jquery"],
-			"masonry": ["jquery"],
-			"shuffle": ["jquery"]
-		}
-	});
-</script>
-)
-[global]
-
-
-[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}]
-	page.headerData.105 = TEXT 
-	page.headerData.105.value( 
-		flexslider: 'Lib/{$_DEFAULT_JSLIB_FLEXSLIDER}',
-		imagesloaded: 'Lib/{$_DEFAULT_JSLIB_IMAGESLOADED}',
-		jquery: 'Lib/{$_DEFAULT_JSLIB_JQUERY}',
-		masonry: 'Lib/{$_DEFAULT_JSLIB_MASONRY}',
-	)
+[globalVar = LIT:1 = {$plugin.tx_njpage.settings.general.angularJS.enable}] && [globalVar = LIT:1 = {$tx_njpage.js.angularJS}] 
+page.bodyTagAdd := appendString( ng-controller="NavCtrl")
 [global]

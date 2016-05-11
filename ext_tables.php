@@ -28,7 +28,7 @@ $nj_collection_lang_file	= 'LLL:EXT:nj_collection/Resources/Private/Language/loc
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', $nj_ext_title.' setup');
 
-
+ 
 /**
  * Flexform
  */

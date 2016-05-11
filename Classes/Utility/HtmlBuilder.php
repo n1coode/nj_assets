@@ -6,6 +6,9 @@ namespace N1coode\NjPage\Utility;
  */
 class HtmlBuilder
 {
+	const _ATTRIBUTE_ANGULAR_APP			= 'ng-app';
+	const _ATTRIBUTE_ANGULAR_VIEW			= 'ng-view';
+	
 	const _ATTRIBUTE_CLASS					= 'class';
 	const _ATTRIBUTE_DATA_DEVICE			= 'data-device';
 	const _ATTRIBUTE_DATA_ROLE				= 'data-role';
@@ -15,11 +18,10 @@ class HtmlBuilder
 	const _ATTRIBUTE_ROLE					= 'role';
 	
 	const _CLASS_PREFIX						= 'n1';
-	const _CLASS_BASE						= self::_CLASS_PREFIX.'base';
-	const _CLASS_CONTAINER					= self::_CLASS_PREFIX.'container';
-	const _CLASS_SECTION					= self::_CLASS_PREFIX.'section';
-	const _CLASS_WRAPPER					= self::_CLASS_PREFIX.'wrapper';
-	
+	const _CLASS_BASE						= 'n1base';
+	const _CLASS_CONTAINER					= 'n1container';
+	const _CLASS_SECTION					= 'n1section';
+	const _CLASS_WRAPPER					= 'n1wrapper';
 	
 	const _ELEMENT_SECTION_ADDRESS			= 'address';
 	const _ELEMENT_SECTION_ARTICLE			= 'article';
@@ -37,10 +39,14 @@ class HtmlBuilder
 	const _ELEMENT_SECTION_NAV				= 'nav';
 	const _ELEMENT_SECTION_SECTION			= 'section';
 	
+	
 	const _ELEMENT_STD_DIV					= 'div';
+	
+	const _EMPTY_SPACE						= ' ';
 	
 	const _TAG_ACTION_OPEN					= 'open';
 	const _TAG_ACTION_CLOSE					= 'close';
+	const _TAG_ACTION_COMPLETE				= 'complete';
 	
 	
 	public static function attribute($name,$value)
@@ -64,13 +70,15 @@ class HtmlBuilder
 		{
 			case self::_TAG_ACTION_OPEN:
 				return self::tagOpen($element);
-			case self:: _TAG_ACTION_CLOSE:
+			case self::_TAG_ACTION_CLOSE:
 				return self::tagClose();
+			case self::_TAG_ACTION_COMPLETE:
+				return self::tagOpen($element).self::tagClose();
 		}
 	}
 	
-	public static function elementClose($elementType)
+	public static function elementClose($element)
 	{
-		return '</'.$elementType.'>';
+		return '</'.$element.'>';
 	}
 }

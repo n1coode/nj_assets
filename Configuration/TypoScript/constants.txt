@@ -8,13 +8,22 @@ _DEFAULT_TEMPLATES_DIR = EXT:nj_page/Resources/Private/Templates/
 _DEFAULT_PARTIALS_DIR = EXT:nj_page/Resources/Private/Partials/
 _DEFAULT_LAYOUTS_DIR = EXT:nj_page/Resources/Private/Layouts/
 _DEFAULT_LANGUAGE_DIR = EXT:nj_page/Resources/Private/Language/
+_DEFAULT_CSS_DIR = EXT:nj_page/Resources/Public/Css
 _DEFAULT_JAVASCRIPT_DIR = typo3conf/ext/nj_page/Resources/Public/JavaScript
 
-_DEFAULT_JSLIB_IMAGESLOADED = imagesLoaded/4.1.0/imagesloaded.pkgd.min
+
+
+_DEFAULT_JSLIB_ANGULARJS_DIR = AngularJS/1.5.5
 _DEFAULT_JSLIB_FLEXSLIDER = FlexSlider/2.5.0/jquery.flexslider.min
+_DEFAULT_JSLIB_IMAGESLOADED = imagesLoaded/4.1.0/imagesloaded.pkgd.min
 _DEFAULT_JSLIB_JQUERY = jQuery/2.2.3/jquery.min
+_DEFAULT_JSLIB_JQUERY_UI = jQueryUI/1.11.4/jquery-ui.min
 _DEFAULT_JSLIB_MASONRY = Masonry/4.0.0/masonry.pkgd.min
 _DEFAULT_JSLIB_MODERNIZR = modernizr/2.8.3/modernizr_custom
+_DEFAULT_JSLIB_REQUIREJS = requireJs/2.2.0/require.min
+
+_DEFAULT_CSSLIB_RESET = reset.css
+_DEFAULT_CSSFILE_MASTER = master.css
 
 _APPLE_TOUCH_ICON = apple-touch-icon
 
@@ -22,24 +31,42 @@ _APPLE_TOUCH_ICON = apple-touch-icon
 plugin.tx_njpage {
 	settings {
         general {
+			angularJS {
+				# cat=plugin.tx_njpage/enable/110; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.angularJS.enable
+				enable = 0
+				# cat=plugin.tx_njpage/typo/120; type=string; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.angularJS.app
+				app = 
+			}
 			javascriptLibs {
-				# cat=plugin.tx_njpage/enable/20; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.jQuery
+				# cat=plugin.tx_njpage/enable/520; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.jQuery
 				jQuery = 0
-				# cat=plugin.tx_njpage/enable/30; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.jQueryUI
+				# cat=plugin.tx_njpage/enable/530; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.jQueryUI
 				jQueryUI = 0
-				# cat=plugin.tx_njpage/enable/40; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.flexSlider
+				# cat=plugin.tx_njpage/enable/540; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.flexSlider
 				flexSlider = 0
-				# cat=plugin.tx_njpage/enable/50; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.masonry
+				# cat=plugin.tx_njpage/enable/550; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.masonry
 				imagesLoaded = 0
-				# cat=plugin.tx_njpage/enable/60; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.imagesLoaded
+				# cat=plugin.tx_njpage/enable/560; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.imagesLoaded
 				masonry = 0
-				# cat=plugin.tx_njpage/enable/70; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.modernizr
+				# cat=plugin.tx_njpage/enable/570; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.modernizr
 				modernizr = 0
-				# cat=plugin.tx_njpage/enable/80; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.pace
+				# cat=plugin.tx_njpage/enable/580; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.pace
 				pace = 0
-				# cat=plugin.tx_njpage/enable/10; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.requireJs
+				# cat=plugin.tx_njpage/enable/510; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.requireJs
 				requireJs = 1
+				# cat=plugin.tx_njpage/enable/515; type=boolean; label=LLL:EXT:nj_page/locallang_db.xlf:tsce.general.javascriptLibs.angularJS
+				angularJS = 0
 			}
 		}
 	}
 }
+
+tx_njpage.js.angularJS = {$plugin.tx_njpage.settings.general.javascriptLibs.angularJS}
+tx_njpage.js.flexSlider = {$plugin.tx_njpage.settings.general.javascriptLibs.flexSlider}
+tx_njpage.js.imagesLoaded = {$plugin.tx_njpage.settings.general.javascriptLibs.imagesLoaded}
+tx_njpage.js.jQuery = {$plugin.tx_njpage.settings.general.javascriptLibs.jQuery}
+tx_njpage.js.jQueryUI = {$plugin.tx_njpage.settings.general.javascriptLibs.jQueryUI}
+tx_njpage.js.masonry = {$plugin.tx_njpage.settings.general.javascriptLibs.masonry}
+tx_njpage.js.modernizr = {$plugin.tx_njpage.settings.general.javascriptLibs.modernizr}
+tx_njpage.js.pace = {$plugin.tx_njpage.settings.general.javascriptLibs.pace}
+tx_njpage.js.requireJs = {$plugin.tx_njpage.settings.general.javascriptLibs.requireJs}

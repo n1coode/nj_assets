@@ -1,0 +1,183 @@
+@import '../../../../../../../../../../develop/projects/nb.www/abstract - typo3style/n1less/responsive.less';
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+HTML {
+	font-size: 10px;
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+}
+
+BODY {
+	background-position-x: center;
+	background-position-y: top;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	
+	&.noscrollbar {
+		overflow: hidden;
+	}
+}
+
+
+A {
+	text-decoration: none;
+}
+
+ng-view {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+.n1base
+{
+	position: relative;
+	&.n1section
+	{
+		width: 100%;
+	}
+	&.n1container
+	{
+		margin: 0 auto;		
+		width: 92%;
+		@media @tablet-strict { width: 90%; }
+		@media @desktop { width: @con-main-width-desktop;; }
+	}
+	&.n1wrapper
+	{
+		margin: 0 auto;
+		width: 100%;
+	}
+}
+
+.clear { clear: both; }
+
+.clearfix:after {
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+//sets image to the bottom
+.imgfix {
+	>img, >svg {
+		vertical-align: bottom;
+	}
+}
+
+/**
+ * responsive
+ **/
+
+// all elements with attribute "data-device" where disabled and per following media screen specifics enabled
+[data-device] { .hide(); }
+
+
+@media @phone
+{
+	[data-device*=mobile] { .show(); }
+}
+
+@media @phone-landscape
+{
+	[data-device*=mobile] {
+		&[data-orientation*="mobile-landscape"]	{ .show(); }
+		&[data-orientation*="mobile-portrait"]	{ .hide(); }
+	}
+}
+
+@media @phone-portrait
+{
+	[data-device*=mobile] {
+		&[data-orientation*="mobile-landscape"]	{ .hide(); }
+		&[data-orientation*="mobile-portrait"]	{ .show(); }
+	}
+}
+@media @tablet-strict
+{
+	[data-device*=tablet] { .show(); }
+}
+@media @tablet-landscape
+{
+	[data-device*=tablet] {
+		&[data-orientation*="tablet-landscape"]	{ .show(); }
+		&[data-orientation*="tablet-portrait"]	{ .hide(); }
+	}
+}
+@media @tablet-portrait
+{
+	[data-device*=tablet] {
+		&[data-orientation*="tablet-landscape"]	{ .hide(); }
+		&[data-orientation*="tablet-portrait"]	{ .show(); }
+	}
+}
+@media @desktop
+{
+	[data-device*=desktop] { .show(); }
+}
+
+
+@import 'Partials/helper.less';
+
+
+@import '../../../../../../../../../../develop/projects/nb.www/abstract - typo3style/n1less/flex.less';
+.n1flex
+{
+	position:relative;
+	.mixin-def-flex-wrapper(@align-content:flex-start,@align-items:stretch,@flow:column,@justify-content:flex-start);
+	@media @desktop,@tablet-landscape 
+	{
+		.mixin-def-flex-wrapper(@align-content:flex-start,@align-items:stretch,@flow:row nowrap,@justify-content:flex-start);
+		&.wrap
+		{
+			.mixin-def-flex-wrapper(@align-content:flex-start,@align-items:stretch,@flow:row nowrap,@justify-content:flex-start);
+		}
+	}
+ 
+	.flexitem
+	{
+		position: inherit;
+		empty-cells: show;
+	}
+	
+	.generate-flex-row(12);
+}
+
+//classes
+.left, .center, .right
+{
+	text-align: center;
+}
+
+.table-row {
+	display: table-row;
+}
+.table-cell {
+	display: table-cell;
+	&.bottom {
+		vertical-align: bottom;
+	}
+}
+
+
+@media @desktop, @tablet-landscape
+{
+	.left {
+		text-align: left;
+	}
+	.center {
+		text-align: center;
+	}
+	.right {
+		text-align: right;
+	}
+}

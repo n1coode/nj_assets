@@ -21,7 +21,7 @@ CREATE TABLE pages_language_overlay (
 #
 
 CREATE TABLE tt_content (
-	tx_njpage_alignment tinyint(4) DEFAULT '0' NOT NULL,
+	tx_njpage_alignment varchar(25) DEFAULT '' NOT NULL,
 	tx_njpage_device_enable tinyint(4) DEFAULT '0' NOT NULL,
 	tx_njpage_device varchar(255) DEFAULT '' NOT NULL,
 	tx_njpage_orientation_enable tinyint(4) DEFAULT '0' NOT NULL,

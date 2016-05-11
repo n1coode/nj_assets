@@ -17,8 +17,10 @@ lib.layoutswitch {
   key.override.field = backend_layout
   default = TEXT
   default.value = standard
-	1 = TEXT
-	1.value = startpage
+	pagets__startpage = TEXT
+	pagets__startpage.value = startpage
+	pagets__angularjs = TEXT
+	pagets__angularjs.value = angularjs
 	2 = TEXT
 	2.value = standard
 	3 = TEXT

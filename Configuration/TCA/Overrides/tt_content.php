@@ -8,11 +8,9 @@ $nj_ext_path		= Constants::NJ_EXT_PATH;
 $nj_ext_title		= Constants::NJ_EXT_TITLE;
 
 $nj_ext_lang_file	= Constants::NJ_EXT_LANG_FILE_BACKEND;
+$nj_domain			= 'tt_content';
 
-$nj_domain = 'tt_content';
-
-
-$tcaDevice = [
+$tcaContentDevice = [
 	'tx_njpage_device' => [
 		'displayCond' => [
 			'AND' => ['FIELD:sys_language_uid:<=:0','FIELD:tx_njpage_device_enable:=:1']
@@ -71,7 +69,7 @@ $tcaDevice = [
 	],
 ];
 
-$tcaStyle = [
+$tcaContentStyle = [
 	'tx_njpage_alignment' => [
 		'displayCond' => 'FIELD:sys_language_uid:<=:0',
 		'exclude' => 0,
@@ -80,10 +78,10 @@ $tcaStyle = [
 			'type' => 'select',
 			'renderType' => 'selectSingle',
 			'items' => [
-					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.left', 0],
-					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.center', 1],
-					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.right', 2],
-					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.justify', 3],
+					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.left', 'left'],
+					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.center', 'center'],
+					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.right', 'right'],
+					[$nj_ext_lang_file.'select.'.$nj_domain.'.alignment.justify', 'justify'],
 			],
 			'default' => 0,
 			'maxitems' => 1
@@ -93,7 +91,7 @@ $tcaStyle = [
 		'displayCond' => 'FIELD:sys_language_uid:<=:0',
 		'exclude' => 0,
 		'change' => 'reload',
-		'label'   => $nj_ext_lang_file.'label.'.$nj_domain.'.classEnable',
+		'label'   => $nj_ext_lang_file.'label.general.classEnable',
 		'config'  => [
 			'type' => 'check'
 		]
@@ -103,7 +101,7 @@ $tcaStyle = [
 			'AND' => ['FIELD:sys_language_uid:<=:0','FIELD:tx_njpage_class_enable:=:1']
 		],
 		'exclude' => 0,
-		'label' => $nj_ext_lang_file.'label.'.$nj_domain.'.class',
+		'label' => $nj_ext_lang_file.'label.general.class',
 		'config'  => [
 			'type' => 'input',
 			'size' => 25,
@@ -119,9 +117,9 @@ $tcaStyle = [
 			'type' => 'select',
 			'renderType' => 'selectSingle',
 			'items' => [
-					['article', 'article'],
-					['div', 'div'],
-					['section', 'section'],
+				['article', 'article'],
+				['div', 'div'],
+				['section', 'section'],
 			],
 			'default' => 'article',
 			'maxitems' => 1
@@ -187,28 +185,28 @@ $tcaStyle = [
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
 	'tt_content',
-	$tcaDevice
+	$tcaContentDevice
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
 	'tt_content',
-	$tcaStyle
+	$tcaContentStyle
 );
 
-$addFields .= '--div--;';
-$addFields .= $nj_ext_lang_file.'tab.'.$nj_domain.'.design,';
-$addFields .= 'tx_njpage_render_type,tx_njpage_alignment,';
-$addFields .= '--palette--;;tx_njpage_bgcolor,';
-$addFields .= '--palette--;;tx_njpage_class,';
-$addFields .= '--palette--;;tx_njpage_style,';
-$addFields .= 'tx_njpage_wrap_enable,tx_njpage_wrap_disable_overall,';
-$addFields .= '--div--;';
-$addFields .= $nj_ext_lang_file.'tab.'.$nj_domain.'.mobile,';
-$addFields .= 'tx_njpage_device_enable,tx_njpage_device_selection,tx_njpage_device,';
-$addFields .= '--palette--;;tx_njpage_orientation,';
+$addContentFields .= '--div--;';
+$addContentFields .= $nj_ext_lang_file.'tab.general.design,';
+$addContentFields .= 'tx_njpage_render_type,tx_njpage_alignment,';
+$addContentFields .= '--palette--;;tx_njpage_bgcolor,';
+$addContentFields .= '--palette--;;tx_njpage_class,';
+$addContentFields .= '--palette--;;tx_njpage_style,';
+$addContentFields .= 'tx_njpage_wrap_enable,tx_njpage_wrap_disable_overall,';
+$addContentFields .= '--div--;';
+$addContentFields .= $nj_ext_lang_file.'tab.'.$nj_domain.'.mobile,';
+$addContentFields .= 'tx_njpage_device_enable,tx_njpage_device_selection,tx_njpage_device,';
+$addContentFields .= '--palette--;;tx_njpage_orientation,';
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
 	'tt_content',
-	$addFields
+	$addContentFields
 );
 
 $requestUpdateFields = 'tx_njpage_bgcolor_enable,tx_njpage_class_enable,tx_njpage_device_enable,tx_njpage_style_enable,tx_njpage_wrap_disable_overall';

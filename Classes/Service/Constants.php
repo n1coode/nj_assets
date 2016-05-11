@@ -10,6 +10,7 @@ class Constants
 	const NJ_AJAX_PAGETYPE	= '6517243';
 	const NJ_EXT_DOMAIN		= 'N1coode';
 	const NJ_EXT_KEY        = 'tx_njpage';
+	const NJ_EXT_LIST_TYPE	= 'njpage_pi1';
 	const NJ_EXT_NAMESPACE	= 'NjPage';
 	const NJ_EXT_PATH       = 'nj_page';
     const NJ_EXT_TITLE      = 'njs Page configuration';

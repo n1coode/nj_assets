@@ -1,6 +1,6 @@
 <?php
 namespace N1coode\NjPage\Hooks;
-
+use N1coode\NjPage\Service\Constants as Constants;
 /**
  * @author n1coode
  * @package nj_collection
@@ -17,10 +17,10 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
      * @param array $row Record row of tt_content
      * @return void
      */
-    public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row) {
-
+    public function preProcess(\TYPO3\CMS\Backend\View\PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row) 
+	{
         //depending on your list type!!
-        if ($row['list_type'] !== 'njpage_pi1') {
+        if ($row['list_type'] !== Constants::NJ_EXT_LIST_TYPE) {
             return;
         }
 
@@ -40,32 +40,22 @@ class PageLayoutView implements \TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHo
 					$action = $controllerActionsExplode[0];
 					$controller = $controllerActionsExplode[1];
 
-					$headerContent = '';
+					$headerContent = '<b>'.$controller.' :: '.$action.'</b><br/>'.Constants::NJ_EXT_PATH.'<br/>';
 				}
 			}
 		}
 		else
 		{
-			$headerContent = '<b>nj_assets</b></br>';
+			$headerContent = '<b>'.Constants::NJ_EXT_PATH.'</b></br>';
 		}
 		
-		
-		
-		
-		
         $drawItem = FALSE;
-        
-		
-
-		
-
+ 
         //we are in a Hook, make instance by your own pls ^^//
         /** @var $extbaseObjectManager \TYPO3\CMS\Extbase\Object\ObjectManager */
         $extbaseObjectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
 
-        
         $itemContent.= '';
-
   }
   
   function XMLToArray($xml) {
